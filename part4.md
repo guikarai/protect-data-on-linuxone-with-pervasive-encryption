@@ -1,12 +1,14 @@
 # Welcome in the Step 4 about building a crypto dashboard with Kibana.
 
-In this part, you will use the ELK microservices to create your first crypto dashboard with Kibana. The agenda of this section is about:
-  1. Accessing to Kibana
-  2. Sourcing the ElasticSearch DataSource
-  3. Creating your first search with Kibana
-  4. Creating your first charts with Kibana
-  5. Creating your first dashboard with Kibana
-  6. Realizing your first crypto dashboard with Kibana
+In this part, you will use the ELK microservices to create your first crypto dashboard with Kibana.
+
+The agenda of this section is about:
+1. Accessing to Kibana
+2. Sourcing the ElasticSearch DataSource
+3. Creating your first search with Kibana
+4. Creating your first charts with Kibana
+5. Creating your first dashboard with Kibana
+6. Realizing your first crypto dashboard with Kibana
 
 ## About Kibana
 Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data. The combination of Elasticsearch, Logstash, and Kibana, referred to as the "ELK Stack". Logstash provides an input stream to Elastic for storage and search, and Kibana accesses the data for visualizations such as dashboards.
@@ -22,33 +24,33 @@ http://<ICP_ELK_Services_URL>:5601
 The kibana web interface should look like as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%2016.58.10%20(2).png)
 
-## Creating your first index
+## Sourcing the ElasticSearch DataSource
 
-#### 2. Define an index pattern
+### A. Define an index pattern
 Click on the left tab bar to "Management".
 
-#### 3. Define an index pattern named "monitor*"
+### B. Define an index pattern named "monitor*"
 Click on Index pattern area, and fill the tab with monitor* as follow. 
 Then click to Next Step.
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.44.34%20(2).png)
 
-#### Save your defined an index pattern
+### C. Save your defined an index pattern
 In configure settings panel, please select @Timestamp.
 Then validate by clicking on Create index pattern.
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.34%20(2).png)
 
-#### Check your new defined pattern
+### D. Check your new defined pattern
 The structure of the index monitor* is displayed front of you:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
 
-## Creating your first search
+## 3 - Creating your first search with Kibana
 
 You can interactively explore your data from the Discover page. You have access to every document in every index that matches the selected index pattern. You can submit search queries, filter the search results, and view document data. You can also see the number of documents that match the search query and get field value statistics. If a time field is configured for the selected index pattern, the distribution of documents over time is displayed in a histogram at the top of the page.
 
-#### 1. Click on the left tab bar to "Discover". 
+#### A. Click on the left tab bar to "Discover". 
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%2017.07.05%20(2).png)
 
-#### 2. Let's start to discover and to explore crypto data sent by LinuxONE virtual machine.
+#### B. Let's start to discover and to explore crypto data sent by LinuxONE virtual machine.
 When you submit a search request, the histogram, Documents table, and Fields list are updated to reflect the search results. The total number of hits (matching documents) is shown in the toolbar. The Documents table shows the first five hundred hits. 
 
 By default, the hits are listed in reverse chronological order, with the newest documents shown first. You can reverse the sort order by clicking the Time column header. You can also sort the table by the values in any indexed field.
@@ -56,13 +58,13 @@ By default, the hits are listed in reverse chronological order, with the newest 
 Click on Available field MODE as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
 
-#### 3. Click on "add" field MODE as follow:
+#### C. Click on "add" field MODE as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.22%20(2).png)
 
-#### 4. Now on the top right bar, click on Save as follow:
+#### D. Now on the top right bar, click on Save as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.27%20(2).png)
 
-#### 5. Save your first search as "icastats". 
+#### E. Save your first search as "icastats". 
 This will be used as dashboard basements to build visualization later.
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
 
