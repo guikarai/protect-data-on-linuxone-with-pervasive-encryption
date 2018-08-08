@@ -60,7 +60,7 @@ Here you are, you just sourced Kibana to your crypto monitoring Elasticsearch DB
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
 
 It is now time to capture a set of information from the DB thanks to a search.
-**Action:** lick on the left tab bar on **"Discover"**. 
+**Action:** Click on the left tab bar on **"Discover"**. 
 
 ## 3 - Creating your first search with Kibana
 
@@ -86,10 +86,18 @@ Now we are good. Let's save this search with a name we can refer later. Saving s
 
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
 
-## Creating your first visualization
-A Kibana dashboard displays a collection of visualizations and searches. You can arrange, resize, and edit the dashboard content and then save the dashboard so you can share it.
+Once save, we are good to start to create some visual.
 
-#### 1. Click on Visualize in the side navigation.
+**Action:** Click on the left tab bar on **Visualization**
+
+## Creating your first visualization
+
+Visualize enables you to create visualizations of the data in your Elasticsearch indices. You can then build dashboards that display related visualizations. Kibana visualizations are based on Elasticsearch queries. By using a series of Elasticsearch aggregations to extract and process your data, you can create charts that show you the trends, spikes, and dips you need to know about. 
+
+For the following, You will create visualizations from a search saved from Discover, **icastats**.
+
+**Action:** Click on Visualize in the side navigation.
+
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
 
 #### 2. Click the Create new visualization button or the + button.
