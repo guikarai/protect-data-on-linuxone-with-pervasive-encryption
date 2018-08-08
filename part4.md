@@ -89,14 +89,15 @@ Now we are good. Let's save this search with a name we can refer later. Saving s
 Once save, we are good to start to create some visual.
 
 **Action:** Click on the left tab bar on **Visualize**
+## 4. Creating your first charts with Kibana
 
-## Creating your first visualization
+#### Creating your first visualization
 
 Visualize enables you to create visualizations of the data in your Elasticsearch indices. You can then build dashboards that display related visualizations. Kibana visualizations are based on Elasticsearch queries. By using a series of Elasticsearch aggregations to extract and process your data, you can create charts that show you the trends, spikes, and dips you need to know about. 
 
 For the following, You will create visualizations from a search saved from Discover, **icastats**.
 
-**Action:** Click the **Create** new visualization button or the **+** button.
+**Action:** Click the **Create new visualization** button or the **+** button.
 
 **Action:** Choose the visualization type: **Vertical Bar**
 
@@ -110,24 +111,31 @@ This opens the visualization builder and loads the selected query.
 
 **Action:** Specify a search query to retrieve the data for your visualization.
 
-#### 5. Vizualization builder
-In the visualization builder, choose the metric aggregation for the visualization’s Y axis: Average
-In the visualization builder, choose the metric field for the visualization’s Y axis: AES CBC
-For the visualizations X axis, select a bucket aggregation: Date Histogram
-For the visualizations X axis, select a bucket field: @Timestamp
-For the visualizations X axis, select a bucket interval: Auto
+#### Vizualization builder
 
-Now click on play button as follow:
+You are now on the visualization builder of Kibana.
+**Action:** In the visualization builder, please:
+1. choose the metric aggregation for the visualization’s Y axis: **Average**
+2. choose the metric field for the visualization’s Y axis: **AES CBC**
+3. for the visualizations X axis, select a bucket aggregation: **Date Histogram**
+4. for the visualizations X axis, select a bucket field: **@Timestamp**
+5. for the visualizations X axis, select a bucket interval: **Auto**
+6. to validatek, now click on **play** button as follow:
+
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.49.17%20(2).png)
 
-You should be able to visualize incoming crypto metrics with a bar chart.
+You should be able to visualize in live crypto metrics with a bar chart.
 
-#### 6. Now on the top right bar, click on Save.
+Now it is time to save your first charts. We will use it later as element of your first dashboard.
 
-#### 7. Save as "AES" your first vizualization chart.
+**Action:** On the top right bar, click on **Save** and name your save as **AES** as follow:
+
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
 
-Repeat the creation of visualization with DES, TDES, SHA-1 and DRBG-SHA-512. Your visualization collection should look like the following:
+**NOTE:** You can repeat the process of visualization creation with DES, TDES, SHA-1 and DRBG-SHA-512. Then you will have more than one charts you can resule later to create your crypto dashboard. If you spend enough time on this, your visualization collection should look like something as follow:
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
+
 Capture d’écran 2018-05-24 à 11.51.53 (2)
 
 ## Creating your first dashboard
