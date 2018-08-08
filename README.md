@@ -66,4 +66,4 @@ In this Code Pattern, the following key architecture components are required:
     3. Creating your first search with Kibana
     4. Creating your first charts with Kibana
     5. Creating your first dashboard with Kibana
-    6. Realizing your first crypto dashboard with Kibana
+    6. Sharing your first crypto dashboard
