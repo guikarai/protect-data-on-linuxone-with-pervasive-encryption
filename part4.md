@@ -28,10 +28,10 @@ That is a good start. You can connect to Kibana. Now, let's see how Kibana can c
 
 ## Sourcing the ElasticSearch DataSource
 
-### A. Define an index pattern
+### A. It is time to create an Index Pattern to Connect to Elasticsearh
 To use Kibana, you have to tell it about the Elasticsearch indices that you want to explore by configuring one or more index patterns. 
 
-Click on the left tab bar to "Management".
+Click on the left tab bar to *"Management"*.
 
 ### B. Define an index pattern named "monitor*"
 An index pattern identifies one or more Elasticsearch indices that you want to explore with Kibana. Kibana looks for index names that match the specified pattern. An asterisk (*) in the pattern matches zero or more characters. For example, the pattern myindex-* matches all indices whose names start with myindex-, such as myindex-1 and myindex-2.
