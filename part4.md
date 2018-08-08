@@ -55,33 +55,35 @@ Your index contains a timestamp field that you want to use to perform time-based
 
 ### C. Check your new defined pattern
 
-Here you are, you just sourced Kibana to your crypto monitoring Elasticsearch DB and its content. The structure of the index monitor* is displayed front of you. It is now time to capture a set of information from the DB thanks to a search.
+Here you are, you just sourced Kibana to your crypto monitoring Elasticsearch DB and its content. The structure of the index monitor* is displayed front of you.
 
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
+
+It is now time to capture a set of information from the DB thanks to a search.
+**Action:** lick on the left tab bar on **"Discover"**. 
 
 ## 3 - Creating your first search with Kibana
 
 You can interactively explore your data from the Discover page. You have access to every document in every index that matches the selected index pattern. You can submit search queries, filter the search results, and view document data. You can also see the number of documents that match the search query and get field value statistics. If a time field is configured for the selected index pattern, the distribution of documents over time is displayed in a histogram at the top of the page.
 
-#### A. Click on the left tab bar to "Discover". 
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%2017.07.05%20(2).png)
 
 #### B. Let's start to discover and to explore crypto data sent by LinuxONE virtual machine.
+
 When you submit a search request, the histogram, Documents table, and Fields list are updated to reflect the search results. The total number of hits (matching documents) is shown in the toolbar. The Documents table shows the first five hundred hits. 
 
 By default, the hits are listed in reverse chronological order, with the newest documents shown first. You can reverse the sort order by clicking the Time column header. You can also sort the table by the values in any indexed field.
 
-Click on Available field MODE as follow:
+**Action:** Click on **Available** field MODE as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
 
-#### C. Click on "add" field MODE as follow:
+**Action:** Click on **Add** field MODE as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.22%20(2).png)
 
-#### D. Now on the top right bar, click on Save as follow:
+**Action:** Now on the top right bar, click on **Save** as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.27%20(2).png)
 
-#### E. Save your first search as "icastats". 
-This will be used as dashboard basements to build visualization later.
+**Action:** Click on **Save** to save your first search as "icastats".This will be used as dashboard basements to build visualization later.
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
 
 ## Creating your first visualization
