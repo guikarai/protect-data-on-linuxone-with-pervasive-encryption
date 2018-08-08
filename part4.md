@@ -45,7 +45,7 @@ An index pattern can also simply be the name of a single index.
 
 ### B. Save your defined an index pattern
 
-If your index contains a timestamp field that you want to use to perform time-based comparisons, select the Index contains time-based events option and select the index field that contains the timestamp. Kibana reads the index mapping to list all of the fields that contain a timestamp.
+Your index contains a timestamp field that you want to use to perform time-based comparisons, select the Index contains time-based events option and select the index field that contains the timestamp. Kibana reads the index mapping to list all of the fields that contain a timestamp.
 
 **Action:** In configure settings panel, please select **@Timestamp**.
 
@@ -54,7 +54,9 @@ If your index contains a timestamp field that you want to use to perform time-ba
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.34%20(2).png)
 
 ### C. Check your new defined pattern
-The structure of the index monitor* is displayed front of you:
+
+Here you are, you just sourced Kibana to your crypto monitoring Elasticsearch DB and its content. The structure of the index monitor* is displayed front of you. It is now time to capture a set of information from the DB thanks to a search.
+
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
 
 ## 3 - Creating your first search with Kibana
