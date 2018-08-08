@@ -38,7 +38,7 @@ The Elastic Stack is the next evolution of ELK.
 
 **Action:** Login to the [IBM Cloud private catalog] () and fill credentials:
 
-[alt-text!](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_login.png)
+![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_login.png)
 
 
     Replace the username: ****
@@ -46,7 +46,7 @@ The Elastic Stack is the next evolution of ELK.
 
 **Action:** Click the top-left icon then go to the catalog from the menu. Click on Catalog then Helm Charts.
 
-[alt-text!](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_select_catalog.png)
+![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_select_catalog.png)
 
 **Action:** Filter the diplayed Helm Charts to view the icp-banking-microservices custom Chart. Click on Filter. Check local-charts to display customized charts.
 
