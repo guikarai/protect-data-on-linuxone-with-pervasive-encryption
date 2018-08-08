@@ -6,8 +6,8 @@ The objective is to discover the IBM Cloud private catalog in order to instantia
 1. What the ELK..?!
 2. What to Keep in mind about ELK?
 3. Discover the Helm chart from the calalog
-4. Configure and install your banking microservice
-5. Access your banking microservice
+4. Configure and install your ELK microservice
+5. Access your ELK microservice
 
 ## Agenda of this Step 2 is the following:
 
@@ -40,9 +40,9 @@ The Elastic Stack is the next evolution of ELK.
 
 ![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_login.png)
 
-
-    Replace the username: ****
-    Replace the password: ****
+**Note:**
+    *Replace the username: ****
+    *Replace the password: ****
 
 **Action:** Click the top-left icon then go to the catalog from the menu. Click on Catalog then Helm Charts.
 
