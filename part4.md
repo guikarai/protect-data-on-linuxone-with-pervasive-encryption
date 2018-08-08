@@ -13,15 +13,17 @@ Kibana is an open source data visualization plugin for Elasticsearch. It provide
 
 More information about Kibana are available [here](https://www.elastic.co/products/kibana).
 
-## Creating your first index
+## 1 - Accessing to Kibana
+Please, refer to your provisionned ICP ELK service in order to connect to the Kibana web interface. You simply need to use your web browser. The kibana default port is 5601.
 
-#### 1. Connecting to the URL of your kibana instance.
 Note that your IP adress is different, you must adapt the following accordingly.
-http://18.197.196.0:5601
+http://<ICP_ELK_Services_URL>:5601
 
 The kibana web interface should look like as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%2016.58.10%20(2).png)
-  
+
+## Creating your first index
+
 #### 2. Define an index pattern
 Click on the left tab bar to "Management".
 
