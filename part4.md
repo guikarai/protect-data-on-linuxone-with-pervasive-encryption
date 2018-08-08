@@ -77,7 +77,7 @@ By default, the hits are listed in reverse chronological order, with the newest 
 **Action:** Click on **Available** field MODE as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
 
-**Action:** Click on **Add** field MODE as follow:
+**Action:** Click on **add** field MODE as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.22%20(2).png)
 
 **Action:** Now on the top right bar, click on **Save** as follow:
