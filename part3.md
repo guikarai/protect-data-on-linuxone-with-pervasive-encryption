@@ -4,13 +4,13 @@
     1. Tooling for ELK crypto stack
     2. Feeding your ELK crypto dashboard
 
-## 1. Tooling for ELK crypto stack
+## 1 - Tooling for ELK crypto stack
 
 So see with a user friendly interface the status of your elasticsearch instance, please, install in your computer the elasticsearch web-plugin named elasticsearch-head. Fill in the form and connect to your elasticsearch instance with the appropriate IP adress. The portname is by default 9200. You should be able to see something simillar to the following:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%20170639%20(2).png)
 
 
-## 2. Feeding your ELK crypto dashboard
+## 2 - Feeding your ELK crypto dashboard
 Please, correct the default ESserverIP adress with your @IP adress according to your environment.
 Let's start with the script in charge to collect data from the icastats command:
 ```
