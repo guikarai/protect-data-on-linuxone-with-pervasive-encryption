@@ -61,7 +61,7 @@ In this Code Pattern, the following key architecture components are required:
     
 ## Step 4 - [Creating a crypto dashboard with ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part4.md)
 
-    1. Acceccing to Kibana
+    1. Accessing to Kibana
     2. Sourcing the ElasticSearch DataSource
     3. Creating your first search with Kibana
     4. Creating your first charts with Kibana
