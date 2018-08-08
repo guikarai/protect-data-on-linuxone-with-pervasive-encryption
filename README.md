@@ -48,17 +48,16 @@ In this Code Pattern, the following key architecture components are required:
     3. Enabling OpenSSL and OpenSSH to use the hardware acceleration support
     4. Checking Hardware Crypto functions
 
-## Step 2 - Building and deploying ELK docker images to IBM Cloud private
-
-    1. Build Docker images
-    2. Deploying docker images to IBM Cloud private
-
-## Step 3 - Deploying ELK microservice from the IBM Cloud private catalog
+## Step 2 - Deploying ELK microservice from the IBM Cloud private catalog
 
     1. Discover the Helm chart from the calalog
     2. Configure and install your ELK microservices
     3. Access your ELK microservice
-    4. Feeding your ELK crypto dashboard
+
+## Step 3 - Pushing crypto activity data to ELK microservice
+    
+    1. Tooling for ELK crypto stack
+    2. Feeding your ELK crypto dashboard
     
 ## Step 4 - Creating a crypto dashboard with ELK microservice
 
