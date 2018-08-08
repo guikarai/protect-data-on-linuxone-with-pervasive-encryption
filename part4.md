@@ -1,9 +1,7 @@
-# Welcome in the Step 4 about 
+# Welcome in the Step 4 about building a crypto dashboard with Kibana.
 
+In this part, you will use the ELK microservices to create your first crypto dashboard with Kibana. The agenda of this section is about:
 
-# Part III. Building a crypto dashboard with Kibana
-
-In this part, you will create your first crypto dashboard with Kibana. 
 
 Kibana is a window into the Elastic Stack. It enables visual exploration and real-time analysis of your data in Elasticsearch. This video is perfect for users that are new to Kibana and are looking for a primer on data exploration, visualization, and dashboarding. Watch Alex Francoeur give a demo of going from a Kibana installation to a full dashboard in matter of minutes. 
 
