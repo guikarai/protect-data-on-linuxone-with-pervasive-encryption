@@ -40,10 +40,6 @@ The Elastic Stack is the next evolution of ELK.
 
 ![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_login.png)
 
-**Note:**
-    *Replace the username: ****
-    *Replace the password: ****
-
 **Action:** Click the top-left icon then go to the catalog from the menu. Click on Catalog then Helm Charts.
 
 ![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_select_catalog.png)
