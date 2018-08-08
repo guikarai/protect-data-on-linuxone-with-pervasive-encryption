@@ -9,7 +9,9 @@ In this part, you will use the ELK microservices to create your first crypto das
   6. Realizing your first crypto dashboard with Kibana
 
 ## About Kibana
-Kibana is a window into the Elastic Stack. It enables visual exploration and real-time analysis of your data in Elasticsearch.
+Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data. The combination of Elasticsearch, Logstash, and Kibana, referred to as the "ELK Stack". Logstash provides an input stream to Elastic for storage and search, and Kibana accesses the data for visualizations such as dashboards.
+
+More information about Kibana are available [here](https://www.elastic.co/products/kibana).
 
 ## Creating your first index
 
