@@ -102,11 +102,13 @@ For the following, You will create visualizations from a search saved from Disco
 
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.48.41%20(2).png)
 
+When you build a visualization from a saved search, any subsequent modifications to the saved search are automatically reflected in the visualization.
+
+**Action:** Click the name of the saved search you previously saved **icastats**. 
+
+This opens the visualization builder and loads the selected query. 
+
 **Action:** Specify a search query to retrieve the data for your visualization.
-
-To build a visualization from a saved search, click the name of the saved search you previously saved (icastats). This opens the visualization builder and loads the selected query. When you build a visualization from a saved search, any subsequent modifications to the saved search are automatically reflected in the visualization. To disable automatic updates, you can disconnect a visualization from the saved search.
-
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.48.53%20(2).png)
 
 #### 5. Vizualization builder
 In the visualization builder, choose the metric aggregation for the visualization’s Y axis: Average
