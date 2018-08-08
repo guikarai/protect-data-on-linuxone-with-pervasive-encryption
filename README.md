@@ -54,7 +54,7 @@ In this Code Pattern, the following key architecture components are required:
     2. Configure and install your ELK microservices
     3. Access your ELK microservice
 
-## Step 3 - [Pushing crypto activity data to ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part3.md)
+## Step 3 - [Pushing crypto activity data to the ICP ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part3.md)
     
     1. Tooling for ELK crypto stack
     2. Feeding your ELK crypto dashboard
