@@ -1,4 +1,4 @@
-# Welcome in step3 - Pushing crypto activity data to ELK microservice
+# Welcome in step 3 about pushing crypto activity data to the ICP ELK microservice.
     
 ## Agenda of this section is about:
     1. Tooling for ELK crypto stack
