@@ -8,7 +8,7 @@ The agenda of this section is about:
 3. Creating your first search with Kibana
 4. Creating your first charts with Kibana
 5. Creating your first dashboard with Kibana
-6. Realizing your first crypto dashboard with Kibana
+6. Sharing your first crypto dashboard
 
 ## About Kibana
 Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data. The combination of Elasticsearch, Logstash, and Kibana, referred to as the "ELK Stack". Logstash provides an input stream to Elastic for storage and search, and Kibana accesses the data for visualizations such as dashboards.
@@ -130,20 +130,44 @@ Now it is time to save your first charts. We will use it later as element of you
 
 **Action:** On the top right bar, click on **Save** and name your save as **AES** as follow:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.49.29%20(2).png)
 
 **NOTE:** You can repeat the process of visualization creation with DES, TDES, SHA-1 and DRBG-SHA-512. Then you will have more than one charts you can resule later to create your crypto dashboard. If you spend enough time on this, your visualization collection should look like something as follow:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.51.53%20(2).png)
 
-Capture d’écran 2018-05-24 à 11.51.53 (2)
+You are now ready to create your first dashboard reusing your visualization charts.
 
-## Creating your first dashboard
+**Action:** In the side navigation, click **Dashboard**.
 
-Capture d’écran 2018-05-24 à 11.52.10 (2)
+## 5 - Creating your first dashboard with Kibana
 
-Capture d’écran 2018-05-24 à 11.52.15 (2)
+A Kibana dashboard displays a collection of visualizations and searches. You can arrange, resize, and edit the dashboard content and then save the dashboard so you can share it.
 
-Capture d’écran 2018-05-24 à 11.52.32 (2)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.52.10%20(2).png)
 
-Capture d’écran 2018-05-24 à 11.52.55 (2)
+**Action:** Click **Create new dashboard**.
+
+**Action:** Click **Add**.
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.52.15%20(2).png)
+
+**Action:** To add a visualization, select **AES** from the list of visualizations or any other created vizualisations.
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.52.32%20(2).png)
+
+What is good to know, is that kibana dashboard elements can be arranged. Play a bit with your mouse. The visualizations and searches in a dashboard are stored in panels that you can move, resize, and delete. To move a panel, click and hold the header of a panel and drag to the new location. To resize a panel, click the resize control on the lower right and drag to the new dimensions.
+
+Now it is time to save your first cryto activity dashboard. We will use it later as a shared dashboard.
+
+**Action:** On the top right bar, click on **Save** and name your save as **icastats_dashboard**.
+
+## 6 - Sharing your first crypto dashboard
+
+You can either share a direct link to a Kibana dashboard, or embed the dashboard in a web page. Users must have Kibana access to view an embedded dashboard.
+
+**Action:** On the top right bar, click on **Share**.
+
+**Action:** Copy the link you want to share or the iframe you want to embed. You can share the live dashboard or a static snapshot of the current point in time.
+
+This ends this ICP Code Pattern. Congratulations.
