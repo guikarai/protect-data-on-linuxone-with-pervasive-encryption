@@ -37,16 +37,20 @@ An index pattern identifies one or more Elasticsearch indices that you want to e
 
 An index pattern can also simply be the name of a single index.
 
-**Action:** Click on Index pattern area, and fill the tab with monitor* as follow. 
-**Action:** Then click to Next Step.
+**Action:** Click on Index pattern area, and fill the tab with **monitor*** as follow. 
+
+**Action:** Then click to **Next Step**.
+
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.44.34%20(2).png)
 
 ### B. Save your defined an index pattern
 
 If your index contains a timestamp field that you want to use to perform time-based comparisons, select the Index contains time-based events option and select the index field that contains the timestamp. Kibana reads the index mapping to list all of the fields that contain a timestamp.
 
-In configure settings panel, please select @Timestamp.
-Then validate by clicking on Create index pattern.
+**Action:** In configure settings panel, please select **@Timestamp**.
+
+**Action:**  Then validate by clicking on **Create** index pattern.
+
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.34%20(2).png)
 
 ### C. Check your new defined pattern
