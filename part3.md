@@ -40,4 +40,4 @@ To assess that it works properly, with web interface there are new records added
 Your elasticsearh-head browser GUI should look like the foolowing:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%20140351%20(2).png)
 
-You are now good for the [step 4](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part4.md) about creating a dashboard to magnify live captured crypto information.
+Congratulations, uou are now good for the [step 4](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part4.md) about creating a dashboard to magnify live captured crypto information.
