@@ -49,10 +49,12 @@ In this Code Pattern, the following key architecture components are required:
     4. Checking Hardware Crypto functions
 
 ## Step 2 - [Deploying ELK microservice from the IBM Cloud private catalog](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part1.md)
-
-    1. Discover the Helm chart from the calalog
-    2. Configure and install your ELK microservices
-    3. Access your ELK microservice
+    
+    1. What the ELK..?!
+    2. What to Keep in mind about ELK?
+    3. Discover the Helm chart from the calalog
+    4. Configure and install your ELK microservices
+    5. Access your ELK microservice
 
 ## Step 3 - [Pushing crypto activity data to the ICP ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part3.md)
     
