@@ -21,15 +21,23 @@ Please, refer to your provisionned ICP ELK service in order to connect to the Ki
 Note that your IP adress is different, you must adapt the following accordingly.
 http://<ICP_ELK_Services_URL>:5601
 
-The kibana web interface should look like as follow:
+A reachable kibana web interface should look like as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%2016.58.10%20(2).png)
+
+That is a good start. You can connect to Kibana. Now, let's see how Kibana can connect to a source of data (in our case the Elasticsearch DB).
 
 ## Sourcing the ElasticSearch DataSource
 
 ### A. Define an index pattern
+To use Kibana, you have to tell it about the Elasticsearch indices that you want to explore by configuring one or more index patterns. 
+
 Click on the left tab bar to "Management".
 
 ### B. Define an index pattern named "monitor*"
+An index pattern identifies one or more Elasticsearch indices that you want to explore with Kibana. Kibana looks for index names that match the specified pattern. An asterisk (*) in the pattern matches zero or more characters. For example, the pattern myindex-* matches all indices whose names start with myindex-, such as myindex-1 and myindex-2.
+
+An index pattern can also simply be the name of a single index.
+
 Click on Index pattern area, and fill the tab with monitor* as follow. 
 Then click to Next Step.
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.44.34%20(2).png)
