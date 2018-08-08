@@ -88,7 +88,7 @@ Now we are good. Let's save this search with a name we can refer later. Saving s
 
 Once save, we are good to start to create some visual.
 
-**Action:** Click on the left tab bar on **Visualization**
+**Action:** Click on the left tab bar on **Visualize**
 
 ## Creating your first visualization
 
@@ -96,11 +96,9 @@ Visualize enables you to create visualizations of the data in your Elasticsearch
 
 For the following, You will create visualizations from a search saved from Discover, **icastats**.
 
-**Action:** Click on Visualize in the side navigation.
+**Action:** Click the **Create** new visualization button or the **+** button.
 
-**Action:** Click the Create new visualization button or the + button.
-
-**Action:** Choose the visualization type: Vertical Bar
+**Action:** Choose the visualization type: **Vertical Bar**
 
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.48.41%20(2).png)
 
