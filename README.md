@@ -40,7 +40,7 @@ In this Code Pattern, the following key architecture components are required:
 
 # Steps
 
-## Step 1 - Enabling Linux to use hardware encryption
+## Step 1 - [Enabling Linux to use hardware encryption](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part1.md)
 
     1. Introduction to the pervasive encryption
     2. Introduction to the Linux crypto stack
@@ -48,18 +48,18 @@ In this Code Pattern, the following key architecture components are required:
     3. Enabling OpenSSL and OpenSSH to use the hardware acceleration support
     4. Checking Hardware Crypto functions
 
-## Step 2 - Deploying ELK microservice from the IBM Cloud private catalog
+## Step 2 - [Deploying ELK microservice from the IBM Cloud private catalog](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part1.md)
 
     1. Discover the Helm chart from the calalog
     2. Configure and install your ELK microservices
     3. Access your ELK microservice
 
-## Step 3 - Pushing crypto activity data to ELK microservice
+## Step 3 - [Pushing crypto activity data to ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part3.md)
     
     1. Tooling for ELK crypto stack
     2. Feeding your ELK crypto dashboard
     
-## Step 4 - Creating a crypto dashboard with ELK microservice
+## Step 4 - [Creating a crypto dashboard with ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part4.md)
 
     1. Acceccing to Kibana
     2. Sourcing the ElasticSearch DataSource
