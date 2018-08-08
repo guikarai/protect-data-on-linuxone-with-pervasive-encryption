@@ -80,10 +80,10 @@ By default, the hits are listed in reverse chronological order, with the newest 
 **Action:** Click on **add** field MODE as follow:
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.22%20(2).png)
 
-**Action:** Now on the top right bar, click on **Save** as follow:
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.27%20(2).png)
+Now we are good. Let's save this search with a name we can refer later. Saving searches enables you to reload them into Discover and use them as the basis for visualizations. Saving a search saves both the search query string and the currently selected index pattern.
 
-**Action:** Click on **Save** to save your first search as "icastats".This will be used as dashboard basements to build visualization later.
+**Action:** Click **Save** in the Kibana toolbar, and enter the name **icastats** for the search and click **Save**.
+
 ![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
 
 ## Creating your first visualization
