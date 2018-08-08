@@ -1,10 +1,16 @@
-# Welcome in Step 2 about building and deploying ELK docker images to IBM Cloud private
+# Welcome in Step 2 about instantiating the ELK microservice from the IBM Cloud private catalog
 
-In this part, you will learn how to monitor captured LinuxONE crypto activity thanks to APIs. You will send these captured information to a no-slq database (Elasticsearch Database).
+The objective is to discover the IBM Cloud private catalog in order to instantiate containers from Docker images that once together create the ELK microservice. In this way, you will be able to create later your crypto dashboard from ICp.
 
-## Agenda of this Step 2 is the following:
+## The agenda for this section is about:
 1. What the ELK..?!
 2. What to Keep in mind about ELK?
+3. Discover the Helm chart from the calalog
+4. Configure and install your banking microservice
+5. Access your banking microservice
+
+## Agenda of this Step 2 is the following:
+
 Build the Docker image
 2. Deploy the docker image to IBM Cloud private
 
@@ -18,6 +24,10 @@ Elasticsearch is developed alongside a data-collection and log-parsing engine ca
 Elasticsearch can be used to search all kinds of documents. It provides scalable search, has near real-time search, and supports multitenancy. "Elasticsearch is distributed, which means that indices can be divided into shards and each shard can have zero or more replicas. Each node hosts one or more shards, and acts as a coordinator to delegate operations to the correct shard(s). Rebalancing and routing are done automatically". Related data is often stored in the same index, which consists of one or more primary shards, and zero or more replica shards. Once an index has been created, the number of primary shards cannot be changed.
 
 More information about ELK here: https://www.elastic.co
+
+
+
+👍 Congratulations! Your ELK application has been instantiated from IBM Cloud Private. You can now ready for the step 4.
 
 ## What to Keep in mind about ELK?
 "ELK" is the acronym for three open source projects: Elasticsearch, Logstash, and Kibana. 
