@@ -16,7 +16,7 @@ Build the Docker image
 
 # ELK Stands for ElasticSearch Logstach Kibana
 
-## What the ELK..?!
+## 1 - What the ELK..?!
 Elasticsearch is a search engine based on Lucene. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java and is released as open source under the terms of the Apache License. Official clients are available in Java, .NET (C#), PHP, Python, Apache Groovy, Ruby and many other languages. According to the DB-Engines ranking, Elasticsearch is the most popular enterprise search engine followed by Apache Solr, also based on Lucene.
 
 Elasticsearch is developed alongside a data-collection and log-parsing engine called Logstash, and an analytics and visualisation platform called Kibana. The three products are designed for use as an integrated solution, referred to as the "Elastic Stack" (formerly the "ELK stack").
@@ -25,11 +25,7 @@ Elasticsearch can be used to search all kinds of documents. It provides scalable
 
 More information about ELK here: https://www.elastic.co
 
-
-
-👍 Congratulations! Your ELK application has been instantiated from IBM Cloud Private. You can now ready for the step 4.
-
-## What to Keep in mind about ELK?
+## 2 - What to Keep in mind about ELK?
 "ELK" is the acronym for three open source projects: Elasticsearch, Logstash, and Kibana. 
 
 * Elasticsearch is a search and analytics engine. 
@@ -38,7 +34,29 @@ More information about ELK here: https://www.elastic.co
 
 The Elastic Stack is the next evolution of ELK.
 
-# Build the Docker image 
-The objective is to build a Docker image from the banking application and then deploy it to the IBM Cloud private.
+## 3 - Discover the Helm chart from the calalog
 
-Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using docker build, users can create an automated build that executes several command-line instructions, step by step.
+**Action:** Login to the [IBM Cloud private catalog] () and fill credentials:
+
+[alt-text!](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_login.png)
+
+
+    Replace the username: ****
+    Replace the password: ****
+
+**Action:** Click the top-left icon then go to the catalog from the menu. Click on Catalog then Helm Charts.
+
+[alt-text!](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_select_catalog.png)
+
+**Action:** Filter the diplayed Helm Charts to view the icp-banking-microservices custom Chart. Click on Filter. Check local-charts to display customized charts.
+
+[alt-text!](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_catalog.png)
+
+**Action:** Click on the Helm Chart called **ibm-elk** to see the overview of the this ELK microservice.
+
+## 4 - Configure and install your ELK microservice
+
+## 5 - Access your ELK microservice
+
+
+👍 Congratulations! Your ELK application has been instantiated from IBM Cloud Private. You can now ready for the [Step 3](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part3.md).
