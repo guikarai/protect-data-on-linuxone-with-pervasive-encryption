@@ -50,7 +50,7 @@ The Elastic Stack is the next evolution of ELK.
 
 **Action:** Filter the diplayed Helm Charts to view the icp-banking-microservices custom Chart. Click on Filter. Check local-charts to display customized charts.
 
-[alt-text!](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_catalog.png)
+![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_catalog.png)
 
 **Action:** Click on the Helm Chart called **ibm-elk** to see the overview of the this ELK microservice.
 
