@@ -44,7 +44,7 @@ This journey requires an existing Linux on IBM Z environment of your choice as s
     3. Enabling OpenSSL and OpenSSH to use the hardware acceleration support
     4. Checking Hardware Crypto functions
 
-## Step 2 - [Deploying ELK microservice from the IBM Cloud private catalog](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part1.md)
+## Step 2 - [Deploying ELK microservice from the IBM Cloud private catalog](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/part2.md)
     
     1. What the ELK..?!
     2. What to Keep in mind about ELK?
