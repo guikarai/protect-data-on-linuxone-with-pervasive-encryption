@@ -16,7 +16,7 @@ When you will complete this Code Pattern, you will understand how to:
 # Architecture
 This journey requires an existing Linux on IBM Z environment of your choice as starting point. From there, and after some optimization, captured encryption activity will be sent to a private cloud environment in order to be magnified thanks to an ELK dashboard. IBM Cloud private has been configured into the LinuxOne LinuxONE Community Cloud.
 
-![Image of the Crypto Stack](https://raw.githubusercontent.com/guikarai/ELK-CPACF/master/images/architecture-crypto-icp.png)
+![Image of the Crypto Stack](https://github.com/guikarai/ELK-CPACF/blob/master/images/code-pattern-architecture.png)
 
 1. User optimizes, collects and pushes Enterprise Legacy environment encryption activity to the IBM Private Cloud.
 3. User deploys an ELK stack running on IBM Cloud private, and sources encryption activity data from Enterprise Legacy environment.
