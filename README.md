@@ -36,7 +36,7 @@ This journey requires an existing Linux on IBM Z environment of your choice as s
 
 # Steps
 
-## Step 1 - [Enabling Linux to use hardware encryption](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part1.md)
+## Step 1 - [Enabling Linux to use hardware encryption](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/part1.md)
 
     1. Introduction to the pervasive encryption
     2. Introduction to the Linux crypto stack
