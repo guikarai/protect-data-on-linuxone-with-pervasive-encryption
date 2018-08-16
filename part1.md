@@ -4,7 +4,7 @@
 1. Introduction to the pervasive encryption
 2. Introduction to the Linux crypto stack
 3. Enabling Linux to use the Hardware
-4. Enabling OpenSSL and OpenSSH to use the hardware acceleration support
+4. Enabling OpenSSL to use the hardware acceleration support
 5. Checking Hardware Crypto functions
 
 # 1 - Introduction to the pervasive encryption
