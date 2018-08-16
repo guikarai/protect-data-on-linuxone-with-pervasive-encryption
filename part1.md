@@ -32,11 +32,12 @@ The IBM Z and LinuxONE systems provide also rich cryptographic functions availab
 A Linux on IBM Z user can easily check whether the Crypto Enablement feature is installed and which algorithms are supported in hardware. Hardware-acceleration for DES, TDES, AES, and GHASH requires CPACF. Issue the command shown below to discover whether the CPACF feature is enabled
 on your hardware.
 ```
-root@crypt06:~# cat /proc/cpuinfo 
+cat /proc/cpuinfo
 vendor_id       : IBM/S390
-# processors    : 2
+# processors    : 6
 bogomips per cpu: 21881.00
-features	: esan3 zarch stfle msa ldisp eimm dfp edat etf3eh highgprs te vx 
+max thread id   : 0
+features	: esan3 zarch stfle msa ldisp eimm dfp edat etf3eh highgprs te vx sie 
 cache0          : level=1 type=Data scope=Private size=128K line_size=256 associativity=8
 cache1          : level=1 type=Instruction scope=Private size=128K line_size=256 associativity=8
 cache2          : level=2 type=Data scope=Private size=4096K line_size=256 associativity=8
@@ -45,6 +46,10 @@ cache4          : level=3 type=Unified scope=Shared size=131072K line_size=256 a
 cache5          : level=4 type=Unified scope=Shared size=688128K line_size=256 associativity=42
 processor 0: version = FF,  identification = 233EF7,  machine = 3906
 processor 1: version = FF,  identification = 233EF7,  machine = 3906
+processor 2: version = FF,  identification = 233EF7,  machine = 3906
+processor 3: version = FF,  identification = 233EF7,  machine = 3906
+processor 4: version = FF,  identification = 233EF7,  machine = 3906
+processor 5: version = FF,  identification = 233EF7,  machine = 3906
 ```
 
 **Note**: msa on line 4, indicates that the CPACF instruction is properly supported and detected.
@@ -54,17 +59,18 @@ processor 1: version = FF,  identification = 233EF7,  machine = 3906
 ## b. Installing libica
 To make use of the libica hardware support for cryptographic functions, you must install the libica package. Obtain the current libica version from your distribution provider for automated installation by issuing the following command:
 ```
-root@crypt06:~# sudo apt-get install libica-utils
+yum install libica-utils
 ```
+
 After the libica utility is installed, use the **icainfo** command to check on the CPACF feature code enablement. 
 The icainfo command displays which CPACF functions are supported by the implementation inside the libica library. Issue the following command to show which cryptographic algorithms will be hardware-accelerated by the libica driver, and which one will remain software-only implementations.
 
 ```
-root@crypt06:~# icainfo
-The following CP Assist for Cryptographic Function (CPACF) 
-operations are supported by libica on this system:
- function      | # hardware | #software
----------------+------------+--------------
+icainfo
+      Cryptographic algorithm support      
+-------------------------------------------
+ function      |  hardware  |  software  
+---------------+------------+------------
          SHA-1 |    yes     |     yes
        SHA-224 |    yes     |     yes
        SHA-256 |    yes     |     yes
@@ -94,6 +100,8 @@ operations are supported by libica on this system:
        AES CTR |    yes     |      no
       AES CMAC |    yes     |      no
        AES XTS |    yes     |      no
+-------------------------------------------
+Built-in FIPS support: FIPS mode inactive.
 ```
 
 From the **cpuinfo** output, you can find the features that are enabled in the central processors. 
@@ -104,33 +112,65 @@ These device drivers for the generic kernel image are included as loadable kerne
 Let's use the **modprobe** command to load the device driver modules. Initially the Linux system is not yet configured to use  the crypto device driver modules, so you must load them manually. The cryptographic device drivers consists of multiple,
 separate modules.
 ```
-root@crypt06:~# modprobe aes_s390
-root@crypt06:~# modprobe des_s390
-root@crypt06:~# modprobe sha1_s390
-root@crypt06:~# modprobe sha256_s390
-root@crypt06:~# modprobe sha512_s390
-root@crypt06:~# modprobe rng     
-root@crypt06:~# modprobe prng
-root@crypt06:~# modprobe hmac
+modprobe aes_s390
+modprobe des_s390
+modprobe sha_common
+modprobe sha1_s390
+modprobe sha256_s390
+modprobe sha512_s390
+modprobe rng     
+modprobe prng
+modprobe hmac
+modprobe ghash
+modprobe xts
+modprobe ctr
+modprobe gcm
 ```
 
 ## d. Pervasive Encryption readiness assessment
 Validate that all the crypto modules are properly loaded. Please issue the following command:
 ```
-root@crypt06:~# lsmod | grep s390
-ghash_s390             16384  0
-aes_s390               20480  0
-des_s390               16384  0
-des_generic            28672  1 des_s390
-sha512_s390            16384  0
-sha256_s390            16384  0
-sha1_s390              16384  0
-sha_common             16384  3 sha256_s390,sha1_s390,sha512_s390
+lsmod
+Module                  Size  Used by
+ghash_generic          12647  0 
+ghash_s390             12608  0 
+xts                    12944  0 
+gf128mul               18889  2 xts,ghash_generic
+ap                     40210  0 
+sha512_s390            12637  0 
+des_s390               13605  0 
+des_generic            25475  1 des_s390
+aes_s390               18044  0 
+prng                   15562  0 
+gcm                    27822  0 
+qeth_l3                96273  1 
+dm_mirror              27404  0 
+dm_region_hash         20992  1 dm_mirror
+dm_log                 19301  2 dm_region_hash,dm_mirror
+dm_mod                175666  2 dm_log,dm_mirror
+nfsd                  483013  1 
+auth_rpcgss            87192  1 nfsd
+nfs_acl                12837  1 nfsd
+lockd                 126989  1 nfsd
+grace                  13684  2 nfsd,lockd
+sunrpc                475171  7 nfsd,auth_rpcgss,lockd,nfs_acl
+smsgiucv_app           13100  0 
+smsgiucv               13564  1 smsgiucv_app
+ip_tables              28006  0 
+ext4                  752462  1 
+mbcache                19112  1 ext4
+jbd2                  144631  1 ext4
+qeth_l2                50075  1 
+dasd_eckd_mod         121814  4 
+dasd_mod              147983  3 dasd_eckd_mod
+qeth                  156071  2 qeth_l2,qeth_l3
+ccwgroup               19383  1 qeth
+qdio                   76112  3 qeth,qeth_l2,qeth_l3
 ```
 
 Validate that the libica crypto API is working properly. Please issue the following command:
 ```
-root@crypt06:~# icastats
+icastats
  function     |          # hardware      |       # software
 --------------+--------------------------+-------------------------
               |       ENC    CRYPT   DEC |        ENC    CRYPT   DEC
@@ -171,14 +211,13 @@ root@crypt06:~# icastats
 
 Your hands-on LAB environment is now properly setup!
 
-# 4 - Enabling OpenSSL and OpenSSH to use the hardware acceleration support
+# 4 - Enabling OpenSSL to use the hardware acceleration support
 
 This chapter describes how to use the cryptographic functions of the LinuxONE server to encrypt data in flight. This technique means that the data is encrypted and decrypted before and after it is transmitted. We will use OpenSSL, SCP and SFTP to demonstrate the encryption of data in flight. 
 This chapter also shows how to customize the product to use the LinuxONE hardware encryption features. This chapter includes the following sections:
 - Preparing to use openSSL
 - Configuring OpenSSL
 - Testing Hardware Crypto functions with OpenSSL
-- Testing Hardware Crypto functions with SCP
 
 ## a. Preparing to use OpenSSL
 In the Linux system you use, OpenSSL is already installed, and the system is already enabled to use the cryptographic hardware of the LinuxONE server. We also loaded the cryptographic device drivers and the libica to use the crypto hardware. For the following steps, the following packages are required for encryption:
@@ -188,99 +227,47 @@ In the Linux system you use, OpenSSL is already installed, and the system is alr
 
 During the installation of Ubuntu, the package openssl-ibmca was not automatically installed and needs to be installed manually. Please issue the following command:
 ```
-root@crypt06:~# sudo apt-get install openssl-ibmca
+yum install openssl-ibmca
 ```
 Now all needed packages are successfully installed. At this moment only the default engine of OpenSSL is available. To check it, please issue the following command:
 ```
-root@crypt06:~# openssl engine -c
+openssl engine -c
 (dynamic) Dynamic engine loading support
 ```
 ## b. Configuring OpenSSL
 To use the ibmca engine and to benefit from the Cryptographic hardware support, the configuration file of OpenSSL needs to be adjusted. To customize OpenSSL configuration to enable dynamic engine loading for ibmca, complete the following steps.
 ### b.1. Locate the OpenSSL configuration file, which in our Ubuntu 16.04.3 LTS distribution is in this subdirectory: 
 ```
-root@crypt06:~# ls /usr/share/doc/openssl-ibmca/examples
+ls /usr/share/doc/openssl-ibmca-1.3.0/
 ```
 
 ### b.2. Make a backup copy of the configuration file
 Locate the main configuration file of openssl. Its name is openssl.cnf. Please issue the following command:
 ```
-root@crypt06:~# ls -la /etc/ssl/openssl.cnf
--rw-r--r-- 1 root root 10835 Dec  7 21:43 /etc/ssl/openssl.cnf
+ls -la /etc/pki/tls/openssl.cnf
+-rw-r--r-- 1 root root 10923 May 17  2017 /etc/pki/tls/openssl.cnf
 ```
 Make a backup copy of the configuration file. We will modify it later, so just in case, please issue the following command:
 ```
-root@crypt06:~# cp -p /etc/ssl/openssl.cnf /etc/ssl/openssl.cnf.backup
+cp -p /etc/pki/tls/openssl.cnf /etc/pki/tls/openssl.cnf.backup
 ```
+
 Check one more time that everything is alright and secured. Please issue the following command:
 ```
-root@crypt06:~# ls -al /etc/ssl/openssl.cnf*
--rw-r--r-- 1 root root 10835 Dec  7 21:43 /etc/ssl/openssl.cnf
--rw-r--r-- 1 root root 10835 Dec  7 21:43 /etc/ssl/openssl.cnf.backup
+ls -al /etc/pki/tls/openssl.cnf*
+-rw-r--r-- 1 root root 10923 May 17  2017 /etc/pki/tls/openssl.cnf
+-rw-r--r-- 1 root root 10923 May 17  2017 /etc/pki/tls/openssl.cnf.backup
 ```
 
 ### b.3. Append the ibmca-related configuration lines to the OpenSSL configuration file
 ```
-root@crypt06:~# tee -a /etc/ssl/openssl.cnf < /usr/share/doc/openssl-ibmca/examples/openssl.cnf.sample
-#
-# OpenSSL example configuration file. This file will load the IBMCA engine
-# for all operations that the IBMCA engine implements for all apps that
-# have OpenSSL config support compiled into them.
-#
-# Adding OpenSSL config support is as simple as adding the following line to
-# the app:
-#
-# #define OPENSSL_LOAD_CONF	1
-#
-openssl_conf = openssl_def
-
-[openssl_def]
-engines = engine_section
-
-
-[engine_section]
-ibmca = ibmca_section
-
-
-[ibmca_section]
-
-# The openssl engine path for libibmca.so.
-# Set the dynamic_path to where the libibmca.so engine
-# resides on the system.
-dynamic_path = /usr/lib/s390x-linux-gnu/openssl-1.0.0/engines/libibmca.so
-engine_id = ibmca
-init = 1
-
-#
-# The following ibmca algorithms will be enabled by these parameters
-# to the default_algorithms line. Any combination of these is valid,
-# with "ALL" denoting the same as all of them in a comma separated
-# list.
-#
-# RSA
-# - RSA encrypt, decrypt, sign and verify, key lengths 512-4096
-#
-# RAND
-# - Hardware random number generation
-#
-# CIPHERS
-# - DES-ECB, DES-CBC, DES-CFB, DES-OFB, DES-EDE3, DES-EDE3-CBC, DES-EDE3-CFB,
-#   DES-EDE3-OFB, AES-128-ECB, AES-128-CBC, AES-128-CFB, AES-128-OFB,
-#   AES-192-ECB, AES-192-CBC, AES-192-CFB, AES-192-OFB, AES-256-ECB,
-#   AES-256-CBC, AES-256-CFB, AES-256-OFB symmetric crypto
-#
-# DIGESTS
-# - SHA1, SHA256, SHA512 digests
-#
-default_algorithms = ALL
-#default_algorithms = RAND,RSA,CIPHERS,DIGESTS
+root@crypt06:~# tee -a /etc/pki/tls/openssl.cnf < /usr/share/doc/openssl-ibmca-1.3.0/openssl.cnf.sample.s390x
 ```
 
-### b.4. Append the ibmca-related configuration lines to the OpenSSL configuration file
 The reference to the ibmca section in the OpenSSL configuration file needs to be inserted. Therefore, insert the following line as show below at the line 10.
 "openssl_conf = openssl_def"
 ```
-[root@crypt06:~# vi /etc/ssl/openssl.cnf
+vi /etc/pki/tls/openssl.cnf
 #
 # OpenSSL example configuration file.
 # This is mostly being used for generation of certificate requests.
@@ -289,7 +276,7 @@ The reference to the ibmca section in the OpenSSL configuration file needs to be
 # defined.
 HOME = .
 RANDFILE = $ENV::HOME/.rnd
-openssl_conf = openssl_def #<== line inserted
+openssl_conf = openssl_def            #<== line inserted
 # Extra OBJECT IDENTIFIER info:
 #oid_file = $ENV::HOME/.oid
 oid_section = new_oids
@@ -301,7 +288,7 @@ oid_section = new_oids
 # 5 - Checking Hardware Crypto functions
 Now that the customization of OpenSSL in done, test whether you can use the LinuxONE hardware cryptographic functions. First, let's check whether the dynamic engine loading support is enabled by default and the engine ibmca is available and used in the installation.
 ```
-root@crypt06:~# openssl engine -c
+openssl engine -c
 (dynamic) Dynamic engine loading support
 (ibmca) Ibmca hardware engine support
  [RAND, DES-ECB, DES-CBC, DES-OFB, DES-CFB, DES-EDE3, DES-EDE3-CBC, DES-EDE3-OFB, DES-EDE3-CFB, AES-128-ECB, AES-192-ECB, AES-256-ECB, AES-128-CBC, AES-192-CBC, AES-256-CBC, AES-128-OFB, AES-192-OFB, AES-256-OFB, AES-128-CFB, AES-192-CFB, AES-256-CFB, SHA1, SHA256, SHA512]
@@ -310,7 +297,7 @@ root@crypt06:~# openssl engine -c
 ## a. Testing Pervasive encryption with OpenSSL
 Now openSSL is properly configured. All crypto operation passing through openSSL will be hardware accelerated if possible. Let's test it in live. Firt of all, let's have a look of the hardware crypto offload status. Please issue the following command:
 ```
-root@crypt06:~# icastats
+icastats
  function     |          # hardware      |       # software
 --------------+--------------------------+-------------------------
               |       ENC    CRYPT   DEC |        ENC    CRYPT   DEC
@@ -349,7 +336,7 @@ As you can see, the libica API already detect some crypto offload to the hardwar
 
 Let's go deeper with some openSSL tests. Please issue the following command:
 ```
-root@crypt06:~# openssl speed -evp aes-128-cbc 
+openssl speed -evp aes-128-cbc 
 Doing aes-128-cbc for 3s on 16 size blocks: 33394917 aes-128-cbc's in 2.83s
 Doing aes-128-cbc for 3s on 64 size blocks: 30227460 aes-128-cbc's in 2.84s
 Doing aes-128-cbc for 3s on 256 size blocks: 21680556 aes-128-cbc's in 2.87s
@@ -367,7 +354,7 @@ The last line is quite interesting, it shows the encrypion bandwidth of one IFL 
 
 Let's test now the decryption capabilities. Please issue the following command:
 ```
-root@crypt06:~# openssl speed -evp aes-128-cbc -decrypt
+openssl speed -evp aes-128-cbc -decrypt
 Doing aes-128-cbc for 3s on 16 size blocks: 33183167 aes-128-cbc's in 2.86s
 Doing aes-128-cbc for 3s on 64 size blocks: 32184259 aes-128-cbc's in 2.87s
 Doing aes-128-cbc for 3s on 256 size blocks: 27682462 aes-128-cbc's in 2.88s
@@ -381,6 +368,7 @@ The 'numbers' are in 1000s of bytes per second processed.
 type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes
 aes-128-cbc     185640.10k   717697.76k  2460663.29k  5956947.57k 15075044.22k
 ```
+
 Same computation, as you can see the observed throuthput is 15 GB/s. That is normal because the CBC mode of operation associated with the AES encryption algorithm is faster in decryption that in encryption.
 
 Let's check now how much crypto we offload to the hardware. Please issue the following command:
@@ -422,133 +410,5 @@ root@crypt06:~# icastats
 ```
 **Note:** We can clearly see here the crypto offload in encryption operations. 96681976 operations were offloaded to the CPACF.
 **Note2:** We can clearly see here the crypto offload in decryption operations. 115370154 operations were offloaded to the CPACF.
-
-## b. Testing Pervasive encryption with scp
-The scp command allows you to copy files over ssh connections. This is pretty useful if you want to transport files between computers, for example to backup something. The scp command uses the ssh protocol and they are very much alike. However, there are some important differences.
-The scp command can be used in three* ways: to copy from a (remote) server to your computer, to copy from your computer to a (remote) server, and to copy from a (remote) server to another (remote) server. In the third case, the data is transferred directly between the servers; your own computer will only tell the servers what to do. These options are very useful for a lot of things that require files to be transferred
-Let's first clean the icastats monitoring. Please issue the following command:
-```
-root@crypt06:~# icastats -r
-```
-The previous command reset the icastats monitoring interface, and ease to interpret future result. 
-
-To confirm the reset took place, please issue the following command:
-```
-root@crypt06:~# icastats
- function     |          # hardware      |       # software
---------------+--------------------------+-------------------------
-              |       ENC    CRYPT   DEC |        ENC    CRYPT   DEC
---------------+--------------------------+-------------------------
-        SHA-1 |               0          |                0
-      SHA-224 |               0          |                0
-      SHA-256 |               0          |                0
-      SHA-384 |               0          |                0
-      SHA-512 |               0          |                0
-        GHASH |               0          |                0
-        P_RNG |               0          |                0
- DRBG-SHA-512 |               0          |                0
-       RSA-ME |               0          |                0
-      RSA-CRT |               0          |                0
-      DES ECB |         0              0 |         0             0
-      DES CBC |         0              0 |         0             0
-      DES OFB |         0              0 |         0             0
-      DES CFB |         0              0 |         0             0
-      DES CTR |         0              0 |         0             0
-     DES CMAC |         0              0 |         0             0
-     3DES ECB |         0              0 |         0             0
-     3DES CBC |         0              0 |         0             0
-     3DES OFB |         0              0 |         0             0
-     3DES CFB |         0              0 |         0             0
-     3DES CTR |         0              0 |         0             0
-    3DES CMAC |         0              0 |         0             0
-      AES ECB |         0              0 |         0             0
-      AES CBC |         0              0 |         0             0
-      AES OFB |         0              0 |         0             0
-      AES CFB |         0              0 |         0             0
-      AES CTR |         0              0 |         0             0
-     AES CMAC |         0              0 |         0             0
-      AES XTS |         0              0 |         0             0
-```
-
-Let's now create a 512MB file that we will use later for a secure file transfer. 
-
-Please issue the following command and note that it will take less than a minute:
-```
-root@crypt06:~# dd if=/dev/urandom of=data.512M bs=64M count=8 iflag=fullblock
-8+0 records in
-8+0 records out
-536870912 bytes (537 MB, 512 MiB) copied, 45.9584 s, 11.7 MB/s
-```
-You just created a 512MB file made of random value. The file is named data.512MB.
-
-You can confirm it issuing the following command:
-```
-root@crypt06:~# ls -hs
-total 512M
-512M data.512M
-```
-Now, let's see the hardware crypto offload with the SCP network protocol.
-
-Please issue the following command, yes confirm if prompted, and enter your session password if prompted (azerty11):
-```
-root@crypt06:~# scp data.512M localhost:/dev/null
-The authenticity of host 'localhost (127.0.0.1)' can't be established.
-ECDSA key fingerprint is SHA256:IRiJuwD8Z8NF77bRUfNIfcIYEbocWMVT6RVcZh+FChs.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.
-root@localhost's password: <----- azerty11
-
-data.512M                                                         100%  512MB 170.7MB/s   00:03
-```
-As you can see, the defaut cipher suite transfered 512MB in 3 seconds, so a bandwidth of 170MB/s. Not so bad.
-
-Issue the icastats command again to validate the hardware crypto offload:
-```
-root@crypt06:~# icastats
- function     |          # hardware      |       # software
---------------+--------------------------+-------------------------
-              |       ENC    CRYPT   DEC |        ENC    CRYPT   DEC
---------------+--------------------------+-------------------------
-        SHA-1 |             388          |                0
-      SHA-224 |               0          |                0
-      SHA-256 |              70          |                0
-      SHA-384 |               0          |                0
-      SHA-512 |               0          |                0
-        GHASH |               0          |                0
-        P_RNG |               0          |                0
- DRBG-SHA-512 |             338          |                0
-       RSA-ME |               0          |                0
-      RSA-CRT |               0          |                0
-      DES ECB |         0              0 |         0             0
-      DES CBC |         0              0 |         0             0
-      DES OFB |         0              0 |         0             0
-      DES CFB |         0              0 |         0             0
-      DES CTR |         0              0 |         0             0
-     DES CMAC |         0              0 |         0             0
-     3DES ECB |         0              0 |         0             0
-     3DES CBC |         0              0 |         0             0
-     3DES OFB |         0              0 |         0             0
-     3DES CFB |         0              0 |         0             0
-     3DES CTR |         0              0 |         0             0
-    3DES CMAC |         0              0 |         0             0
-      AES ECB |         0              0 |         0             0
-      AES CBC |         0              0 |         0             0
-      AES OFB |         0              0 |         0             0
-      AES CFB |         0              0 |         0             0
-      AES CTR |         0              0 |         0             0
-     AES CMAC |         0              0 |         0             0
-      AES XTS |         0              0 |         0             0
-```
-**Note:** Data integrity operation with sha1 and sha256 were correcly reported. AES is accelerated by default and is not reported because not passing through libica device driver.
-
-**Note2:** By default, scp doesn't use the best ciphers of IBM Z and LinuxONE. However, it is possible to specify it manually with -c option.
-
-Let's compare the defaut cipher performance with an optimized cipher. Please issue the following command:
-```
-root@crypt06:~# scp -c aes256-ctr data.512M localhost:/dev/null
-root@localhost's password: 
-data.512M                                                           100%  512MB 256.0MB/s   00:02
-```
-As you can see, with 256MB/s, we increased the throughput by 50%. So, beware default settings. Make sure to use hardware accelerated ciphers by IBM Z and LinuxONE.
 
 You are now ready to go the [Step 2](https://github.com/guillaume-hoareau/protect-data-on-linuxone-with-pervasive-encryption/blob/master/part2.md).
