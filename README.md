@@ -57,7 +57,7 @@ This journey requires an existing Linux on IBM Z environment of your choice as s
     1. Tooling for ELK crypto stack
     2. Feeding your ELK crypto dashboard
     
-## Step 4 - [Creating a crypto dashboard with ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part4.md)
+## Step 4 - [Creating a crypto dashboard with ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/part4.md)
 
     1. Accessing to Kibana
     2. Sourcing the ElasticSearch DataSource
