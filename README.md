@@ -52,7 +52,7 @@ This journey requires an existing Linux on IBM Z environment of your choice as s
     4. Configure and install your ELK microservices
     5. Access your ELK microservice
 
-## Step 3 - [Pushing crypto activity data to the ICP ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part3.md)
+## Step 3 - [Pushing crypto activity data to the ICP ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part3.md) 
     
     1. Tooling for ELK crypto stack
     2. Feeding your ELK crypto dashboard
