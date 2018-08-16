@@ -373,7 +373,7 @@ Same computation, as you can see the observed throuthput is 15 GB/s. That is nor
 
 Let's check now how much crypto we offload to the hardware. Please issue the following command:
 ```
-root@crypt06:~# icastats
+icastats
  function     |          # hardware      |       # software
 --------------+--------------------------+-------------------------
               |       ENC    CRYPT   DEC |        ENC    CRYPT   DEC
